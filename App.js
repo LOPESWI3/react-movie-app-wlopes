@@ -1,12 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
+import { NativeBaseProvider } from 'native-base';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import AppStack from './src/components/stack/AppStack';
+import MoviesContainer from './src/components/containers/MoviesContainer';
+import SearchContainer from './src/components/containers/SearchContainer';
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeBaseProvider>
+     <NavigationContainer>
+        <AppStack />
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 
@@ -18,3 +24,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App
